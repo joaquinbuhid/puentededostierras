@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Flame, Beaker, Leaf, Mountain } from 'lucide-react'
 import { useCountry } from '@/app/country-context'
+import Bottle3D from '@/components/bottle-3d'
 
 const processSteps = [
   { icon: Leaf, title: 'AGAVE ESPADÍN', description: 'Agave angustifolia Haw.' },
@@ -51,37 +52,14 @@ export default function ProductHighlight() {
         
         <div className="grid lg:grid-cols-3 gap-8 items-center">
           {/* Left - Bottle with rotation */}
-          <div className="lg:col-span-1 h-[400px] lg:h-[550px] order-2 lg:order-1 flex items-center justify-center relative">
+          <div className="lg:col-span-1 h-[400px] lg:h-[550px] order-2 lg:order-1 flex items-center justify-center relative w-full">
             {/* Background glow */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
             </div>
             
-            <div
-              className="relative z-10"
-              style={{
-                perspective: '1000px',
-              }}
-            >
-              <div
-                style={{
-                  transform: `rotateY(${rotationY}deg)`,
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.15s ease-out',
-                }}
-              >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png"
-                  alt="Botella de Mezcal Puente de Dos Tierras - Espadín Joven"
-                  width={240}
-                  height={480}
-                  className="object-contain drop-shadow-xl h-auto"
-                  style={{
-                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25))',
-                    backfaceVisibility: 'hidden',
-                  }}
-                />
-              </div>
+            <div className="relative z-10 w-full h-full">
+              <Bottle3D scrollProgress={scrollProgress} />
             </div>
           </div>
           
