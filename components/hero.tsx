@@ -34,9 +34,17 @@ export default function Hero() {
       id="inicio" 
       className="min-h-screen pt-32 pb-16 relative overflow-hidden"
     >
-      {/* Background mountains/agave pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-t from-primary/20 to-transparent" />
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/grande-c879Atgc7oDMOQkX9riMh40QzK9USl.jpg"
+          alt=""
+          fill
+          className="object-cover"
+          priority
+        />
+        {/* White overlay to fade the background */}
+        <div className="absolute inset-0 bg-white/75" />
       </div>
       
       <div className="max-w-7xl mx-auto px-4">
