@@ -31,7 +31,7 @@ export const products: Product[] = [
       argentina: 28900,
       mexico: 700
     },
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_whoaihwhoaihwhoa.png-Mg1Sxv148w4LN12VOcFiygXC0zJ6cn.jpeg',
     features: ['100% Agave', 'Doble Destilación', 'Horno Cónico', 'Artesanal'],
     specs: {
       agave: 'Espadín (Agave angustifolia Haw)',
@@ -73,7 +73,7 @@ export const products: Product[] = [
       argentina: 42900,
       mexico: 1050
     },
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_whoaihwhoaihwhoa.png-Q6jY7jkguSNcPYoghHtg0unCzEzyrk.jpeg',
     features: ['100% Agave', 'Artesanal', 'Doble Destilación', 'Edición Especial'],
     specs: {
       agave: 'Espadín seleccionado (8 años)',
@@ -94,7 +94,7 @@ export const products: Product[] = [
       argentina: 32900,
       mexico: 800
     },
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_ssmigcssmigcssmi.png-wcqoPEyOt4WDwuNTjIYR1KBP6CyyVp.jpeg',
     features: ['100% Agave', 'Artesanal', 'Export Quality', 'Certificación DOP'],
     specs: {
       agave: 'Espadín (Agave angustifolia Haw)',
