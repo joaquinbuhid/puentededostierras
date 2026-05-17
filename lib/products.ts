@@ -94,7 +94,7 @@ export const products: Product[] = [
       argentina: 32900,
       mexico: 800
     },
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_ssmigcssmigcssmi.png-wcqoPEyOt4WDwuNTjIYR1KBP6CyyVp.jpeg',
     features: ['100% Agave', 'Artesanal', 'Export Quality', 'Certificación DOP'],
     specs: {
       agave: 'Espadín (Agave angustifolia Haw)',
