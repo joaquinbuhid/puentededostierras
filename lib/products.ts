@@ -52,7 +52,7 @@ export const products: Product[] = [
       argentina: 34900,
       mexico: 850
     },
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png',
+    image: '/mezcal-rustico.png',
     features: ['100% Agave', 'Artesanal', 'Fermentación Natural', 'Horno Cónico'],
     specs: {
       agave: 'Espadín (Agave angustifolia Haw)',
