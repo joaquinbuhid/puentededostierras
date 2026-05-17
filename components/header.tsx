@@ -3,17 +3,19 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X, ShoppingCart, User } from 'lucide-react'
+import { useCart } from '@/app/cart-context'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { totalItems } = useCart()
 
   const navLinks = [
-    { href: '#inicio', label: 'Inicio' },
-    { href: '#mezcales', label: 'Mezcales' },
-    { href: '#nosotros', label: 'Nosotros' },
-    { href: '#productores', label: 'Productores' },
-    { href: '#cultura', label: 'Cultura' },
-    { href: '#contacto', label: 'Contacto' },
+    { href: '/', label: 'Inicio' },
+    { href: '/mezcales', label: 'Mezcales' },
+    { href: '/#nosotros', label: 'Nosotros' },
+    { href: '/#productores', label: 'Productores' },
+    { href: '/#cultura', label: 'Cultura' },
+    { href: '/#contacto', label: 'Contacto' },
   ]
 
   return (
@@ -85,12 +87,14 @@ export default function Header() {
             <button className="p-2 hover:bg-secondary rounded-full transition-colors">
               <User className="w-5 h-5" />
             </button>
-            <button className="p-2 hover:bg-secondary rounded-full transition-colors relative">
+            <Link href="/carrito" className="p-2 hover:bg-secondary rounded-full transition-colors relative">
               <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center">
-                0
-              </span>
-            </button>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs w-5 h-5 rounded-full flex items-center justify-center">
+                  {totalItems}
+                </span>
+              )}
+            </Link>
             
             {/* Mobile menu button */}
             <button
