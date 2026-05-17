@@ -29,9 +29,9 @@ export default function Hero() {
   const translateY = Math.sin(Date.now() * 0.001) * 5
 
   return (
-    <section 
+    <section
       ref={sectionRef}
-      id="inicio" 
+      id="inicio"
       className="min-h-screen pt-32 pb-16 relative overflow-hidden"
     >
       {/* Background image */}
@@ -46,7 +46,7 @@ export default function Hero() {
         {/* White overlay to fade the background */}
         <div className="absolute inset-0 bg-white/75" />
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-12rem)]">
           {/* Left content */}
@@ -59,15 +59,15 @@ export default function Hero() {
                 Conectamos a productores mexicanos con vos, para que disfrutes un mezcal artesanal, de calidad y a un precio accesible.
               </p>
             </div>
-            
+
             <div className="flex flex-wrap gap-4">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg">
                 Comprar Mezcales
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg" 
+              <Button
+                variant="outline"
+                size="lg"
                 className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8 py-6 text-lg"
               >
                 Conocer Nuestra Historia
@@ -79,16 +79,16 @@ export default function Hero() {
           <div className="relative h-[500px] lg:h-[650px] flex items-center justify-center">
             {/* Glow effect behind bottle */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div 
+              <div
                 className="w-64 h-64 rounded-full bg-primary/10 blur-3xl"
                 style={{
                   transform: `scale(${1 + scrollProgress * 0.3})`,
                 }}
               />
             </div>
-            
+
             {/* Bottle container with 3D perspective */}
-            <div 
+            <div
               className="relative z-10 transition-transform duration-100 ease-out"
               style={{
                 perspective: '1000px',
@@ -123,11 +123,11 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            
+
             {/* Decorative elements */}
             <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-2">
               {[...Array(5)].map((_, i) => (
-                <div 
+                <div
                   key={i}
                   className="w-2 h-2 rounded-full bg-primary/30"
                   style={{
