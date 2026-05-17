@@ -1,6 +1,5 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Flame, Beaker, Leaf, Mountain } from 'lucide-react'
@@ -14,74 +13,36 @@ const processSteps = [
 ]
 
 export default function ProductHighlight() {
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const sectionRef = useRef<HTMLElement>(null)
   const { country } = useCountry()
   
   const price = country === 'argentina' ? '$28.900 ARS' : '$700 MXN'
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (sectionRef.current) {
-        const rect = sectionRef.current.getBoundingClientRect()
-        const viewportHeight = window.innerHeight
-        const sectionTop = rect.top
-        const sectionHeight = rect.height
-        
-        if (sectionTop < viewportHeight && sectionTop > -sectionHeight) {
-          const progress = (viewportHeight - sectionTop) / (viewportHeight + sectionHeight)
-          setScrollProgress(Math.max(0, Math.min(1, progress)))
-        }
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const rotationY = scrollProgress * 180
-
   return (
-    <section ref={sectionRef} id="mezcales" className="py-24 bg-background">
+    <section id="mezcales" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-4">
           <span className="text-sm uppercase tracking-widest text-muted-foreground">Producto destacado</span>
         </div>
         
         <div className="grid lg:grid-cols-3 gap-8 items-center">
-          {/* Left - Bottle with rotation */}
+          {/* Left - Bottle static */}
           <div className="lg:col-span-1 h-[400px] lg:h-[550px] order-2 lg:order-1 flex items-center justify-center relative">
             {/* Background glow */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
             </div>
             
-            <div
-              className="relative z-10"
-              style={{
-                perspective: '1000px',
-              }}
-            >
-              <div
+            <div className="relative z-10">
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png"
+                alt="Botella de Mezcal Puente de Dos Tierras - Espadín Joven"
+                width={240}
+                height={480}
+                className="object-contain drop-shadow-xl h-auto"
                 style={{
-                  transform: `rotateY(${rotationY}deg)`,
-                  transformStyle: 'preserve-3d',
-                  transition: 'transform 0.15s ease-out',
+                  filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25))',
                 }}
-              >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png"
-                  alt="Botella de Mezcal Puente de Dos Tierras - Espadín Joven"
-                  width={240}
-                  height={480}
-                  className="object-contain drop-shadow-xl h-auto"
-                  style={{
-                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.25))',
-                    backfaceVisibility: 'hidden',
-                  }}
-                />
-              </div>
+              />
             </div>
           </div>
           
