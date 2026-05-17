@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { CountryProvider } from './country-context'
+import { CartProvider } from './cart-context'
 import CountryModal from '@/components/country-modal'
 import './globals.css'
 
@@ -30,8 +31,10 @@ export default function RootLayout({
     <html lang="es" className="bg-background">
       <body className={`${playfair.variable} ${inter.variable} font-sans antialiased`}>
         <CountryProvider>
-          <CountryModal />
-          {children}
+          <CartProvider>
+            <CountryModal />
+            {children}
+          </CartProvider>
         </CountryProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
