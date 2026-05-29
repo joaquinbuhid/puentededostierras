@@ -1,6 +1,9 @@
-import { Search, CreditCard, Truck } from 'lucide-react'
+'use client'
 
-const steps = [
+import { Search, CreditCard, Truck } from 'lucide-react'
+import { useCountry } from '@/app/country-context'
+
+const stepsArgentina = [
   {
     icon: Search,
     title: 'Elegí tu mezcal',
@@ -18,13 +21,37 @@ const steps = [
   }
 ]
 
+const stepsMexico = [
+  {
+    icon: Search,
+    title: 'Elige tu mezcal',
+    description: 'Explora nuestra selección de mezcales artesanales.'
+  },
+  {
+    icon: CreditCard,
+    title: 'Compra en línea',
+    description: 'Proceso 100% seguro y múltiples métodos de pago.'
+  },
+  {
+    icon: Truck,
+    title: 'Te lo enviamos',
+    description: 'Recíbelo en la puerta de tu casa en todo el país.'
+  }
+]
+
 export default function HowToBuy() {
+  const { country } = useCountry()
+  const steps = country === 'mexico' ? stepsMexico : stepsArgentina
+  const title = country === 'mexico'
+    ? 'Comprar mezcal artesanal nunca fue tan fácil'
+    : 'Comprar mezcal en Argentina nunca fue tan fácil'
+
   return (
     <section className="py-24 bg-secondary">
       <div className="max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
-            Comprar mezcal en Argentina nunca fue tan fácil
+            {title}
           </h2>
         </div>
         

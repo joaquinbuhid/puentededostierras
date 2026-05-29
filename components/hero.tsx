@@ -4,8 +4,19 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
 import Bottle3D from '@/components/bottle-3d'
+import { useCountry } from '@/app/country-context'
 
 export default function Hero() {
+  const { country } = useCountry()
+
+  const headline = country === 'mexico'
+    ? 'Auténtico mezcal artesanal, directo de Oaxaca.'
+    : 'Auténtico mezcal mexicano, en Argentina.'
+
+  const subtitle = country === 'mexico'
+    ? 'Conectamos a productores locales contigo, para que disfrutes un mezcal artesanal, de calidad y a un precio accesible.'
+    : 'Conectamos a productores mexicanos con vos, para que disfrutes un mezcal artesanal, de calidad y a un precio accesible.'
+
   return (
     <section 
       id="inicio" 
@@ -30,10 +41,10 @@ export default function Hero() {
           <div className="space-y-8 z-10">
             <div className="space-y-4">
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif font-bold text-foreground leading-tight text-balance">
-                Auténtico mezcal mexicano, en Argentina.
+                {headline}
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
-                Conectamos a productores mexicanos con vos, para que disfrutes un mezcal artesanal, de calidad y a un precio accesible.
+                {subtitle}
               </p>
             </div>
             

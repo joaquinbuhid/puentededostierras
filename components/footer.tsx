@@ -1,5 +1,8 @@
+'use client'
+
 import Link from 'next/link'
 import { Mail, Phone, MapPin } from 'lucide-react'
+import { useCountry } from '@/app/country-context'
 
 const navigationLinks = [
   { title: 'NAVEGACIÓN', links: [
@@ -19,7 +22,22 @@ const navigationLinks = [
   ]},
 ]
 
+const contactArgentina = {
+  email: 'info@puentedostierras.com.ar',
+  phone: '+54 11 1234 5678',
+  location: 'Buenos Aires, Argentina',
+}
+
+const contactMexico = {
+  email: 'info@puentedostierras.com.mx',
+  phone: '+52 55 1234 5678',
+  location: 'Ciudad de México, México',
+}
+
 export default function Footer() {
+  const { country } = useCountry()
+  const contact = country === 'mexico' ? contactMexico : contactArgentina
+
   return (
     <footer id="contacto" className="bg-primary text-primary-foreground py-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -74,15 +92,15 @@ export default function Footer() {
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-primary-foreground/80 text-sm">
                 <Mail className="w-4 h-4" />
-                info@puentedostierras.com.ar
+                {contact.email}
               </li>
               <li className="flex items-center gap-3 text-primary-foreground/80 text-sm">
                 <Phone className="w-4 h-4" />
-                +54 11 1234 5678
+                {contact.phone}
               </li>
               <li className="flex items-center gap-3 text-primary-foreground/80 text-sm">
                 <MapPin className="w-4 h-4" />
-                Buenos Aires, Argentina
+                {contact.location}
               </li>
             </ul>
           </div>

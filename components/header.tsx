@@ -4,10 +4,12 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X, ShoppingCart, User } from 'lucide-react'
 import { useCart } from '@/app/cart-context'
+import { useCountry } from '@/app/country-context'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const { totalItems } = useCart()
+  const { country } = useCountry()
 
   const navLinks = [
     { href: '/', label: 'Inicio' },
@@ -28,7 +30,7 @@ export default function Header() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
               </svg>
-              Envíos a todo Argentina
+              {country === 'mexico' ? 'Envíos a todo México' : 'Envíos a todo Argentina'}
             </span>
             <span className="hidden sm:flex items-center gap-2">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,7 +42,7 @@ export default function Header() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
               </svg>
-              3 y 6 cuotas sin interés
+              {country === 'mexico' ? 'Meses sin intereses' : '3 y 6 cuotas sin interés'}
             </span>
           </div>
           <div className="flex gap-4">

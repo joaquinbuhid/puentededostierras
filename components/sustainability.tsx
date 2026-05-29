@@ -1,6 +1,11 @@
+'use client'
+
 import { Recycle, Leaf, Globe } from 'lucide-react'
+import { useCountry } from '@/app/country-context'
 
 export default function Sustainability() {
+  const { country } = useCountry()
+
   return (
     <section className="py-20 bg-primary/5">
       <div className="max-w-7xl mx-auto px-4">
@@ -14,7 +19,9 @@ export default function Sustainability() {
               En Puente de Dos Tierras nos comprometemos con el medio ambiente. Todas nuestras botellas son completamente reciclables, porque creemos que cuidar la tradición también significa cuidar el planeta.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Desde el proceso de producción hasta el empaque final, buscamos minimizar nuestro impacto ambiental. Cada botella que elegís es un paso hacia un futuro más sustentable.
+              {country === 'mexico'
+                ? 'Desde el proceso de producción hasta el empaque final, buscamos minimizar nuestro impacto ambiental. Cada botella que eliges es un paso hacia un futuro más sustentable.'
+                : 'Desde el proceso de producción hasta el empaque final, buscamos minimizar nuestro impacto ambiental. Cada botella que elegís es un paso hacia un futuro más sustentable.'}
             </p>
           </div>
 
