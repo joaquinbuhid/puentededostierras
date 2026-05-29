@@ -3,7 +3,6 @@
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { ArrowRight } from 'lucide-react'
-import Bottle3D from '@/components/bottle-3d'
 import { useCountry } from '@/app/country-context'
 
 export default function Hero() {
@@ -63,17 +62,14 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right content - Interactive 3D Bottle */}
-          <div className="relative h-[500px] lg:h-[650px]">
-            <Bottle3D
+          {/* Right content - Bottle Image */}
+          <div className="relative h-[500px] lg:h-[650px] flex items-center justify-center">
+            <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/mezcal-jdgCJvvZKCyL3hi8HfYXwgTxOFoAdW.png"
               alt="Botella de Mezcal Puente de Dos Tierras - Espadín Joven"
               width={320}
               height={640}
-              className="w-full h-full"
-              intensity={1}
-              enableFloat={true}
-              enableGlow={true}
+              className="object-contain h-full w-auto drop-shadow-2xl"
             />
           </div>
         </div>
